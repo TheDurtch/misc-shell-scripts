@@ -1,0 +1,13 @@
+@ECHO OFF
+
+FOR %%f IN (*.flac) DO (
+echo Converting: %%f
+ffmpeg -i "%%f" -aq 7.5 -map_metadata 0 "encode/%%~nf.mp3"
+)
+
+echo Finished
+
+PAUSE
+
+#Feel free to modify anyway you want.
+#If you want to reduce the quality of MP3s for streaming on tixati replace "FOR %%f IN (*.flac) DO (" with "FOR %%f IN (*.mp3) DO ("

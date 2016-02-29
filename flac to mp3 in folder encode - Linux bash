@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for a in *.flac; do
+  ffmpeg -i "$a" -qscale:a 7.5 "${a[@]/%flac/mp3}"
+done
+
+#Feel free to modify anyway you want.
+#If you want to reduce the quality of MP3s for streaming on tixati replace "for a in *.flac; do" with "for a in *.mp3; do" and
+# replace "ffmpeg -i "$a" -qscale:a 7.5 "${a[@]/%flac/mp3}"" with "ffmpeg -i "$a" -qscale:a 7.5 "encode/${a[@]/%flac/mp3}""
+# don't forget to run "mkdir encode" before running
